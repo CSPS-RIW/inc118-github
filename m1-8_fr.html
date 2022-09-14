@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- preloaded D2L template to be changed -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+        href="https://app.csps-efpc.gc.ca/shared/LCS_HTML_Templates/CSPS_Template_2021/_assets/thirdpartylib/bootstrap-4.3.1/css/bootstrap.min.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet"
+        href="https://app.csps-efpc.gc.ca/shared/LCS_HTML_Templates/CSPS_Template_2021/_assets/css/styles.min.css">
+    <link rel="stylesheet"
+        href="https://app.csps-efpc.gc.ca/shared/LCS_HTML_Templates/CSPS_Template_2021/_assets/thirdpartylib/bootstrap-4.3.1/css/bootstrap.min.css"
+        id="D2L_style_bootstrap">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assets/fontawesome-free-5.9.0-web/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/csps-app.css">
+    <!-- endinject -->
+
+    <title>Réflexion de fin du module 1</title>
+</head>
+
+<body>
+    <div class="container-fluid data">
+        <div class="row">
+            <div class="col-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8">
+                <!-- Templates  -->
+                <template id="petite_checklist" class="petite-checklist-template">
+                    <div class="card card-standard card-reveal">
+                        <div class="card-body">
+                            <fieldset class="petite-field">
+                                <legend class="petite-legend">
+                                    <strong>Question {{uniqueId}}</strong> - {{question}}
+                                </legend>
+                            </fieldset>
+                            <p class="petite-content">
+                                <input type="radio" :name=`question_${uniqueId}`
+                                    :id=`question_${uniqueId}${randNum+1}` class="option">
+                                <label :for=`question_${uniqueId}${randNum+1}`>1</label>
+                            </p>
+                            <p class="petite-content">
+                                <input type="radio" :name=`question_${uniqueId}`
+                                    :id=`question_${uniqueId}${randNum+2}` class="option">
+                                <label :for=`question_${uniqueId}${randNum+2}`>2</label>
+                            </p>
+                            <p class="petite-content">
+                                <input type="radio" :name=`question_${uniqueId}`
+                                    :id=`question_${uniqueId}${randNum+3}` class="option">
+                                <label :for=`question_${uniqueId}${randNum+3}`>3</label>
+                            </p>
+                            <p class="petite-content">
+                                <input type="radio" :name=`question_${uniqueId}`
+                                    :id=`question_${uniqueId}${randNum+4}` class="option">
+                                <label :for=`question_${uniqueId}${randNum+4}`>4</label>
+                            </p>
+                            <p class="petite-content">
+                                <input type="radio" :name=`question_${uniqueId}`
+                                    :id=`question_${uniqueId}${randNum+5}` class="option">
+                                <label :for=`question_${uniqueId}${randNum+5}`>5</label>
+                            </p>
+                            <p class="petite-content">
+                                <input type="radio" :name=`question_${uniqueId}`
+                                    :id=`question_${uniqueId}${randNum+6}` class="option">
+                                <label :for=`question_${uniqueId}${randNum+6}`>Je ne sais
+                                    pas</label>
+                            </p>
+                        </div>
+                    </div>
+                </template>
+
+                <template id="petite_ta" class="petite-textArea-template">
+                    <div class="card card-standard card-reveal">
+                        <div class="card-body">
+                            <form method="post" class="thoughts-form">
+                                <label
+                                    :for="uniqueId !== ''? `textAreaId_${uniqueId}` : ''"
+                                    class="thought-label"
+                                    :class="isRequired === true ? 'required': ''">
+                                    <strong>Question {{uniqueId}}</strong> - {{question}}
+                                    <span v-if="isRequired === true" class="wb-inv">Cette
+                                        question est nécessaire pour
+                                        soumettre le formulaire.</span></label>
+                                <textarea name="thoughts"
+                                    :id="`textAreaId_${uniqueId}` !== ''? `textAreaId_${uniqueId}` : ''"
+                                    class="thought-text"
+                                    v-model="personalThought"></textarea>
+                                <button :id="uniqueId !== ''? `btnId_${uniqueId}`: ''"
+                                    class="btn btn-primary thought-submit"
+                                    @click.prevent="submitForm">Soumettre</button>
+
+                                <div class="saved-resp" aria-live="polite">
+                                    <p v-if="isValid === true && isRequired === true"
+                                        class="feedback feedback-positive"
+                                        :aria-labelledby="uniqueId !== ''? `textAreaId_${uniqueId}` : ''">
+                                        Votre réponse est :
+                                        {{personalThought}}
+                                    </p>
+                                    <p v-else-if="isValid === false"
+                                        class="feedback feedback-negative"
+                                        :aria-labelledby="uniqueId !== ''? `textAreaId_${uniqueId}` : ''">
+                                        Veuillez compléter la zone de texte requise.</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </template>
+                <!-- Ajouter du contenu ici -->
+                <main class="m1-8">
+                    <h1>Réflexion de fin du module 1</h1>
+                    <p class="icon icon-click">Réfléchissez à ce que vous avez appris et
+                        évaluez les énoncés ci-dessous à l’aide de l’échelle fournie, dans
+                        laquelle 1 signifie « Pas du tout » et 5, « Tout à fait ».</p>
+                    <div class="checkbox-component"
+                        v-scope="addCheckBox({question: `Je peux expliquer certaines notions liées à l’inclusion après avoir parcouru tout le contenu de ce module.`, uniqueId: 1,})">
+                    </div>
+                    <div class="checkbox-component"
+                        v-scope="addCheckBox({question: `Je suis conscient ou consciente de mes préjugés inconscients.`, uniqueId: 2})">
+                    </div>
+                    <div class="checkbox-component"
+                        v-scope="addCheckBox({question: `Je peux nommer certains moyens d’atténuer les préjugés inconscients.`, uniqueId: 3})">
+                    </div>
+                    <div class="checkbox-component"
+                        v-scope="addCheckBox({question: `Je comprends que les différentes dimensions de l’identité d’une personne peuvent lui conférer des privilèges.`, uniqueId: 4})">
+                    </div>
+                    <div class="checkbox-component"
+                        v-scope="addCheckBox({question:`Je comprends que les autres peuvent être confrontés à des obstacles que je ne connais pas.`, uniqueId: 5})">
+                    </div>
+                    <p class="icon icon-click">
+                        Réfléchissez à la question ci-dessous et répondez-y dans l’espace
+                        prévu à cet effet, si vous le souhaitez.
+                    </p>
+                    <div class="ta-component"
+                        v-scope="textInputVal({question: `Nommez un geste que vous comptez poser pour amener vos collègues à se sentir inclus ou promouvoir l’inclusion au travail.`,isRequired: true, uniqueId: '6'} )">
+                    </div>
+                    <!-- <div class="print-container">
+                        <button class="print-answers" title="Print Answers"
+                            data-toggle="tooltip">
+                            <span class="wb-inv">Print Answers</span>
+                        </button>
+                    </div> -->
+                </main>
+
+
+                <!-- Fin du contenu -->
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JavaScript: jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+        src="https://app.csps-efpc.gc.ca/shared/LCS_HTML_Templates/CSPS_Template_2021/_assets/thirdpartylib/jquery/jquery-3.4.1.min.js">
+    </script>
+    <script
+        src="https://app.csps-efpc.gc.ca/shared/LCS_HTML_Templates/CSPS_Template_2021/_assets/thirdpartylib/popper-js/popper.min.js">
+    </script>
+    <script
+        src="https://app.csps-efpc.gc.ca/shared/LCS_HTML_Templates/CSPS_Template_2021/_assets/thirdpartylib/bootstrap-4.3.1/js/bootstrap.min.js">
+    </script>
+    <!-- Template JavaScript -->
+    <script
+        src="https://app.csps-efpc.gc.ca/shared/LCS_HTML_Templates/CSPS_Template_2021/_assets/js/scripts.min.js">
+    </script>
+
+    <!-- inject:js -->
+    <script src="assets/js/csps-app.js"></script>
+    <!-- endinject -->
+    <script src="assets/js/petite-checklist.js" type="module"></script>
+    <!-- <script>
+        let printBtn = document.querySelector('.print-answers');
+        let printCont = document.querySelector('.print-container');
+        printBtn.addEventListener('click', () => {
+            window.print();
+        })
+    </script> -->
+</body>
+
+</html>
