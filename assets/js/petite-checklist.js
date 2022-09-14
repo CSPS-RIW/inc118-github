@@ -7,6 +7,7 @@ const addCheckBox = (prop) => {
         question: prop.question,
         uniqueId: prop.uniqueId,
         randNum: Math.floor(Math.random() * 6),
+        lang: document.querySelector('html').getAttribute('lang'),
     }
 }
 
@@ -18,6 +19,7 @@ const textInputVal = (prop) => {
         personalThought: null,
         isValid: null,
         uniqueId: prop.uniqueId,
+        lang: document.querySelector('html').getAttribute('lang'),
         submitForm() {
             if (this.personalThought === null || this.personalThought === '') {
                 if (this.isRequired !== true) {
