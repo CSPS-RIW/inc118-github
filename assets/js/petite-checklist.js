@@ -8,6 +8,7 @@ const addCheckBox = (prop) => {
         uniqueId: prop.uniqueId,
         randNum: Math.floor(Math.random() * 6),
         lang: document.querySelector('html').getAttribute('lang'),
+        isRequired: prop.isRequired,
     }
 }
 

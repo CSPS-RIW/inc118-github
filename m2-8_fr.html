@@ -147,37 +147,37 @@
                 <!-- Ajouter du contenu ici -->
                 <main class="m1-8">
                     <h1>Réflexion</h1>
-                    <p>Prenez un moment pour réfléchir à ce que vous avez appris en
-                        répondant aux questions de l’enquête de Réflexion sur
-                        l’introduction à l’inclusion :</p>
+                    <div class="chat-container right grey">
+                        <div class="persona megan"></div>
+                        <p class="chat-bubble">Prenez un
+                            moment pour réfléchir à ce que vous avez appris en répondant
+                            aux
+                            questions de l’enquête de Réflexion sur L’inclusion des
+                            communautés 2ELGBTQI+.</p>
+                    </div>
                     <div class="jumbotron">
-                        <h2>Remarque</h2>
+                        <h2>Remarque :</h2>
                         <p>Toutes les réponses sont anonymes.</p>
                     </div>
+
                     <p class="icon icon-click">Réfléchissez à ce que vous avez appris et
                         évaluez les énoncés ci-dessous à l’aide de l’échelle fournie, dans
                         laquelle 1 signifie « Pas du tout » et 5, « Tout à fait ».</p>
                     <div class="checkbox-component"
-                        v-scope="addCheckBox({question: `Je peux expliquer certaines notions liées à l’inclusion après avoir parcouru tout le contenu de ce module.`, isRequired: true ,uniqueId: 1,})">
+                        v-scope="addCheckBox({question: `Je peux expliquer certaines notions liées à l’inclusion après avoir parcouru tout le contenu de ce module.` ,uniqueId: 1, isRequired: true})">
                     </div>
                     <div class="checkbox-component"
-                        v-scope="addCheckBox({question: `Je suis conscient ou consciente de mes préjugés inconscients.`, isRequired: true ,uniqueId: 2})">
+                        v-scope="addCheckBox({question: `Je comprends que d’autres dimensions de l’identité (capacités, race, santé mentale, statut socioéconomique, etc.) peuvent aussi avoir une influence sur l’exclusion ou l’inclusion vécue par les membres de communautés 2ELGBTQI+. ` ,uniqueId: 2, isRequired: true})">
                     </div>
                     <div class="checkbox-component"
-                        v-scope="addCheckBox({question: `Je peux nommer certains moyens d’atténuer les préjugés inconscients.`, isRequired: true ,uniqueId: 3})">
-                    </div>
-                    <div class="checkbox-component"
-                        v-scope="addCheckBox({question: `Je comprends que les différentes dimensions de l’identité d’une personne peuvent lui conférer des privilèges.`, isRequired: true ,uniqueId: 4})">
-                    </div>
-                    <div class="checkbox-component"
-                        v-scope="addCheckBox({question:`Je comprends que les autres peuvent être confrontés à des obstacles que je ne connais pas.`, isRequired: true ,uniqueId: 5})">
+                        v-scope="addCheckBox({question: `D’après la définition du terme « allié, alliée » dans le contexte des communautés 2ELGBTQI+, je pense avoir suffisamment d’outils pour défendre activement les membres de communautés 2ELGBTQI+.` ,uniqueId: 3, isRequired: true})">
                     </div>
                     <p class="icon icon-click">
                         Réfléchissez à la question ci-dessous et répondez-y dans l’espace
                         prévu à cet effet, si vous le souhaitez.
                     </p>
                     <div class="ta-component"
-                        v-scope="textInputVal({question: `Nommez un geste que vous comptez poser pour amener vos collègues à se sentir inclus ou promouvoir l’inclusion au travail.`, isRequired: true, uniqueId: '6',} )">
+                        v-scope="textInputVal({question: `Nommez un geste que vous comptez poser pour mieux défendre les communautés 2ELGBTQI+ au travail.`, isRequired: true, uniqueId: 4,} )">
                     </div>
                     <!-- <div class="print-container">
                         <button class="print-answers" title="Print Answers"
@@ -186,8 +186,6 @@
                         </button>
                     </div> -->
                 </main>
-
-
                 <!-- Fin du contenu -->
             </div>
         </div>
@@ -212,12 +210,13 @@
     <!-- endinject -->
     <script src="assets/js/petite-checklist.js" type="module"></script>
     <!-- <script>
-        let printBtn = document.querySelector('.print-answers');
-        let printCont = document.querySelector('.print-container');
-        printBtn.addEventListener('click', () => {
-            window.print();
-        })
-    </script> -->
+          let printBtn = document.querySelector('.print-answers');
+          let printCont = document.querySelector('.print-container');
+          printBtn.addEventListener('click', () => {
+              window.print();
+          })
+      </script> -->
+
 </body>
 
 </html>

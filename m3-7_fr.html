@@ -45,51 +45,51 @@
                                 </legend>
                             </fieldset>
                             <p class="petite-content">
-                                <input type="radio" :name=`question_${uniqueId}`
-                                    :id=`question_${uniqueId}${randNum+1}` class="option">
-                                <label :for=`question_${uniqueId}${randNum+1}`>1 - <span
+                                <input type="radio" :name=`input_${uniqueId}`
+                                    :id=`input_${uniqueId}${randNum+1}` class="option">
+                                <label :for=`input_${uniqueId}${randNum+1}`>1 - <span
                                         v-if="lang==='fr'">Pas du
                                         tout d’accord</span><span
                                         v-else-if="lang==='en'">Strongly
                                         disagree</span></label>
                             </p>
                             <p class="petite-content">
-                                <input type="radio" :name=`question_${uniqueId}`
-                                    :id=`question_${uniqueId}${randNum+2}` class="option">
-                                <label :for=`question_${uniqueId}${randNum+2}`>2 - <span
+                                <input type="radio" :name=`input_${uniqueId}`
+                                    :id=`input_${uniqueId}${randNum+2}` class="option">
+                                <label :for=`input_${uniqueId}${randNum+2}`>2 - <span
                                         v-if="lang==='fr'">Pas
                                         d’accord</span><span
                                         v-else-if="lang==='en'">Disagree</span></label>
                             </p>
                             <p class="petite-content">
-                                <input type="radio" :name=`question_${uniqueId}`
-                                    :id=`question_${uniqueId}${randNum+3}` class="option">
-                                <label :for=`question_${uniqueId}${randNum+3}`>3 - <span
+                                <input type="radio" :name=`input_${uniqueId}`
+                                    :id=`input_${uniqueId}${randNum+3}` class="option">
+                                <label :for=`input_${uniqueId}${randNum+3}`>3 - <span
                                         v-if="lang==='fr'">Pas
                                         d’opinion</span><span
                                         v-else-if="lang==='en'">Neither agree or
                                         disagree</span></label>
                             </p>
                             <p class="petite-content">
-                                <input type="radio" :name=`question_${uniqueId}`
+                                <input type="radio" :name=`input_${uniqueId}`
                                     :id=`question_${uniqueId}${randNum+4}` class="option">
                                 <label :for=`question_${uniqueId}${randNum+4}`>4 -
                                     <span v-if="lang==='fr'"> D’accord</span><span
                                         v-else-if="lang==='en'">Agree</span></label>
                             </p>
                             <p class="petite-content">
-                                <input type="radio" :name=`question_${uniqueId}`
-                                    :id=`question_${uniqueId}${randNum+5}` class="option">
-                                <label :for=`question_${uniqueId}${randNum+5}`>5 - <span
+                                <input type="radio" :name=`input_${uniqueId}`
+                                    :id=`input_${uniqueId}${randNum+5}` class="option">
+                                <label :for=`input_${uniqueId}${randNum+5}`>5 - <span
                                         v-if="lang==='fr'">Tout à
                                         fait d’accord</span><span
                                         v-else-if="lang==='en'">Strongly
                                         agree</span></label>
                             </p>
                             <p class="petite-content">
-                                <input type="radio" :name=`question_${uniqueId}`
-                                    :id=`question_${uniqueId}${randNum+6}` class="option">
-                                <label :for=`question_${uniqueId}${randNum+6}`><span
+                                <input type="radio" :name=`input_${uniqueId}`
+                                    :id=`input_${uniqueId}${randNum+6}` class="option">
+                                <label :for=`input_${uniqueId}${randNum+6}`><span
                                         v-if="lang === 'fr'">Je ne sais
                                         pas</span><span
                                         v-else-if="lang === 'en'">Unsure</span></label>
@@ -147,47 +147,44 @@
                 <!-- Ajouter du contenu ici -->
                 <main class="m1-8">
                     <h1>Réflexion</h1>
-                    <p>Prenez un moment pour réfléchir à ce que vous avez appris en
-                        répondant aux questions de l’enquête de Réflexion sur
-                        l’introduction à l’inclusion :</p>
+                    <div class="chat-container right grey">
+                        <div class="persona robert"></div>
+                        <p class="chat-bubble">Prenez un moment pour réfléchir à ce que
+                            vous avez appris en répondant aux questions de l’enquête de
+                            Réflexion sur L’accessibilité.</p>
+                    </div>
                     <div class="jumbotron">
-                        <h2>Remarque</h2>
+                        <h2>Remarque :</h2>
                         <p>Toutes les réponses sont anonymes.</p>
                     </div>
+
                     <p class="icon icon-click">Réfléchissez à ce que vous avez appris et
                         évaluez les énoncés ci-dessous à l’aide de l’échelle fournie, dans
                         laquelle 1 signifie « Pas du tout » et 5, « Tout à fait ».</p>
                     <div class="checkbox-component"
-                        v-scope="addCheckBox({question: `Je peux expliquer certaines notions liées à l’inclusion après avoir parcouru tout le contenu de ce module.`, isRequired: true ,uniqueId: 1,})">
+                        v-scope="addCheckBox({question: `Je peux expliquer certaines notions liées à l’inclusion des personnes handicapées après avoir parcouru tout le contenu de ce module.`, uniqueId: 1, isRequired: true})">
                     </div>
                     <div class="checkbox-component"
-                        v-scope="addCheckBox({question: `Je suis conscient ou consciente de mes préjugés inconscients.`, isRequired: true ,uniqueId: 2})">
+                        v-scope="addCheckBox({question: `Je comprends mieux comment l’accessibilité touche les personnes ayant un handicap.`, uniqueId: 2, isRequired: true})">
                     </div>
                     <div class="checkbox-component"
-                        v-scope="addCheckBox({question: `Je peux nommer certains moyens d’atténuer les préjugés inconscients.`, isRequired: true ,uniqueId: 3})">
-                    </div>
-                    <div class="checkbox-component"
-                        v-scope="addCheckBox({question: `Je comprends que les différentes dimensions de l’identité d’une personne peuvent lui conférer des privilèges.`, isRequired: true ,uniqueId: 4})">
-                    </div>
-                    <div class="checkbox-component"
-                        v-scope="addCheckBox({question:`Je comprends que les autres peuvent être confrontés à des obstacles que je ne connais pas.`, isRequired: true ,uniqueId: 5})">
+                        v-scope="addCheckBox({question: `Je comprends que d’autres dimensions de l’identité (identité de genre, orientation sexuelle, race, santé mentale, statut socioéconomique, etc.) peuvent aussi avoir une influence sur l’inclusion ou l’exclusion que vivent les personnes atteintes d’au moins un handicap.` ,uniqueId: 3, isRequired: true})">
                     </div>
                     <p class="icon icon-click">
-                        Réfléchissez à la question ci-dessous et répondez-y dans l’espace
+                        Réfléchissez à la question ci-dessous et répondez-y dans
+                        l’espace
                         prévu à cet effet, si vous le souhaitez.
                     </p>
                     <div class="ta-component"
-                        v-scope="textInputVal({question: `Nommez un geste que vous comptez poser pour amener vos collègues à se sentir inclus ou promouvoir l’inclusion au travail.`, isRequired: true, uniqueId: '6',} )">
+                        v-scope="textInputVal({question: `Nommez un geste que vous comptez poser pour rendre votre milieu de travail plus accessible.`, isRequired: true, uniqueId: 4,} )">
                     </div>
                     <!-- <div class="print-container">
-                        <button class="print-answers" title="Print Answers"
-                            data-toggle="tooltip">
-                            <span class="wb-inv">Print Answers</span>
-                        </button>
-                    </div> -->
+                                        <button class="print-answers" title="Print Answers"
+                                            data-toggle="tooltip">
+                                            <span class="wb-inv">Print Answers</span>
+                                        </button>
+                                    </div> -->
                 </main>
-
-
                 <!-- Fin du contenu -->
             </div>
         </div>
@@ -212,12 +209,13 @@
     <!-- endinject -->
     <script src="assets/js/petite-checklist.js" type="module"></script>
     <!-- <script>
-        let printBtn = document.querySelector('.print-answers');
-        let printCont = document.querySelector('.print-container');
-        printBtn.addEventListener('click', () => {
-            window.print();
-        })
-    </script> -->
+             let printBtn = document.querySelector('.print-answers');
+             let printCont = document.querySelector('.print-container');
+             printBtn.addEventListener('click', () => {
+                 window.print();
+             })
+         </script> -->
+
 </body>
 
 </html>
