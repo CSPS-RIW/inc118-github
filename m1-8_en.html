@@ -20,14 +20,169 @@
     <link rel="stylesheet" href="assets/fontawesome-free-5.9.0-web/css/all.min.css">
     <link rel="stylesheet" href="assets/css/csps-app.css">
     <!-- endinject -->
-    <title>Custom Page</title>
+    <title>Reflection</title>
 </head>
 
 <body>
     <div class="container-fluid data">
         <div class="row">
             <div class="col-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8">
-                <!-- Add your content here -->
+                <!-- Templates -->
+                <template id="petite_checklist" class="petite-checklist-template">
+                    <fieldset class="petite-field">
+                        <legend class="petite-legend"
+                            :class="isRequired === true && 'required'">
+                            <strong>Question {{uniqueId}}</strong> - {{question}}
+                            <span v-if="isRequired === true" class="wb-inv">
+                                <span v-if="lang==='fr'">Cette
+                                    question est nécessaire.</span>
+                                <span v-else-if="lang==='en'">This question is
+                                    required.</span>
+                            </span>
+                        </legend>
+                    </fieldset>
+                    <p class="petite-content">
+                        <input type="radio" :name=`question_${uniqueId}`
+                            :id=`question_${uniqueId}${randNum+1}` class="option">
+                        <label :for=`question_${uniqueId}${randNum+1}`>1 - <span
+                                v-if="lang==='fr'">Pas du
+                                tout d’accord</span><span v-else-if="lang==='en'">Strongly
+                                disagree</span></label>
+                    </p>
+                    <p class="petite-content">
+                        <input type="radio" :name=`question_${uniqueId}`
+                            :id=`question_${uniqueId}${randNum+2}` class="option">
+                        <label :for=`question_${uniqueId}${randNum+2}`>2 - <span
+                                v-if="lang==='fr'">Pas
+                                d’accord</span><span
+                                v-else-if="lang==='en'">Disagree</span></label>
+                    </p>
+                    <p class="petite-content">
+                        <input type="radio" :name=`question_${uniqueId}`
+                            :id=`question_${uniqueId}${randNum+3}` class="option">
+                        <label :for=`question_${uniqueId}${randNum+3}`>3 - <span
+                                v-if="lang==='fr'">Pas
+                                d’opinion</span><span v-else-if="lang==='en'">Neither
+                                agree or
+                                disagree</span></label>
+                    </p>
+                    <p class="petite-content">
+                        <input type="radio" :name=`question_${uniqueId}`
+                            :id=`question_${uniqueId}${randNum+4}` class="option">
+                        <label :for=`question_${uniqueId}${randNum+4}`>4 -
+                            <span v-if="lang==='fr'"> D’accord</span><span
+                                v-else-if="lang==='en'">Agree</span></label>
+                    </p>
+                    <p class="petite-content">
+                        <input type="radio" :name=`question_${uniqueId}`
+                            :id=`question_${uniqueId}${randNum+5}` class="option">
+                        <label :for=`question_${uniqueId}${randNum+5}`>5 - <span
+                                v-if="lang==='fr'">Tout à
+                                fait d’accord</span><span v-else-if="lang==='en'">Strongly
+                                agree</span></label>
+                    </p>
+                    <p class="petite-content">
+                        <input type="radio" :name=`question_${uniqueId}`
+                            :id=`question_${uniqueId}${randNum+6}` class="option">
+                        <label :for=`question_${uniqueId}${randNum+6}`><span
+                                v-if="lang === 'fr'">Je ne sais
+                                pas</span><span
+                                v-else-if="lang === 'en'">Unsure</span></label>
+                    </p>
+                    <hr>
+                </template>
+
+                <template id="petite_ta" class="petite-textArea-template">
+
+                    <form method="post" class="thoughts-form">
+                        <label :for="uniqueId !== ''&& `textAreaId_${uniqueId}` "
+                            class="thought-label"
+                            :class="isRequired === true && 'required'">
+                            <strong>Question {{uniqueId}}</strong> - {{question}}
+                            <span v-if="isRequired === true" class="wb-inv">
+                                <span v-if="lang==='fr'">Cette
+                                    question est nécessaire pour
+                                    soumettre le formulaire.</span>
+                                <span v-else-if="lang==='en'">This question is
+                                    required to submit the form.</span>
+                            </span></label>
+                        <textarea name="thoughts"
+                            :id="`textAreaId_${uniqueId}` !== ''&& `textAreaId_${uniqueId}` "
+                            class="thought-text" v-model="personalThought"></textarea>
+                        <button :id="uniqueId !== ''&& `btnId_${uniqueId}`"
+                            class="btn btn-primary thought-submit"
+                            @click.prevent="submitForm"><span
+                                v-if="lang==='fr'">Soumettre</span><span
+                                v-else-if="lang==='en'">Submit</span></button>
+
+                        <div class="saved-resp" aria-live="polite">
+                            <p v-if="isValid === true && isRequired === true"
+                                class="feedback feedback-positive"
+                                :aria-labelledby="uniqueId !== ''&& `textAreaId_${uniqueId}` ">
+                                <span v-if="lang==='fr'">
+                                    Votre réponse est :</span><span
+                                    v-else-if="lang==='en'">Your response is:</span>
+                                {{personalThought}}</p>
+                            <p v-else-if="isValid === false"
+                                class="feedback feedback-negative"
+                                :aria-labelledby="uniqueId !== ''&& `textAreaId_${uniqueId}` ">
+                                <span v-if="lang==='fr'">
+                                    Veuillez compléter la zone de texte
+                                    requise.</span><span v-else-if="lang==='en'">Please
+                                    fill in the
+                                    required text box.</span>
+                            </p>
+                        </div>
+                    </form>
+                </template>
+                <!-- Add content here  -->
+                <main class="m1-8">
+                    <h1>Reflection</h1>
+                    <p>Take a moment to reflect on what you learned by answering the
+                        questions below.</p>
+                    <div class="jumbotron">
+                        <h2>Note</h2>
+                        <p>All responses are anonymous.</p>
+                    </div>
+                    <div class="card card-standard card-reveal">
+                        <div class="card-body">
+
+                            <p class="icon icon-click">Reflecting on your own personal
+                                learning journey, please rate the following statements on
+                                a scale of 1 to 5, where 1 is “completely disagree” and 5
+                                is “completely agree.”
+                            </p>
+                            <div class="checkbox-component"
+                                v-scope="addCheckBox({question: `I can explain some concepts related to inclusion after completing this module’s content.`, isRequired: true ,uniqueId: 1,})">
+                            </div>
+                            <div class="checkbox-component"
+                                v-scope="addCheckBox({question: `I am aware that I have some unconscious biases.`, isRequired: true ,uniqueId: 2})">
+                            </div>
+                            <div class="checkbox-component"
+                                v-scope="addCheckBox({question: `I can identify some ways to mitigate unconscious biases.`, isRequired: true ,uniqueId: 3})">
+                            </div>
+                            <div class="checkbox-component"
+                                v-scope="addCheckBox({question: `I understand that various aspects of a person’s identity can influence their level of privilege.`, isRequired: true ,uniqueId: 4})">
+                            </div>
+                            <div class="checkbox-component"
+                                v-scope="addCheckBox({question:`I understand that others may face barriers that I do not know about.`, isRequired: true ,uniqueId: 5})">
+                            </div>
+                            <p class="icon icon-click">
+                                Please reflect upon the following question and consider
+                                responding in the space provided.
+                            </p>
+                            <div class="ta-component"
+                                v-scope="textInputVal({question: `What is one thing you will do to make others on your team feel more included or to promote inclusion in your workplace?`, isRequired: true, uniqueId: '6',} )">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="print-container">
+                        <button class="print-answers" title="Print Answers"
+                            data-toggle="tooltip">
+                            <span class="wb-inv">Print Answers</span>
+                        </button>
+                    </div> -->
+                </main>
 
 
                 <!-- Content ends here -->
@@ -47,9 +202,11 @@
     </script> <!-- Template JavaScript -->
     <script
         src="https://app.csps-efpc.gc.ca/shared/LCS_HTML_Templates/CSPS_Template_2021/_assets/js/scripts.min.js">
-    </script> <!-- inject:js -->
+    </script>
+    <!-- inject:js -->
     <script src="assets/js/csps-app.js"></script>
     <!-- endinject -->
+    <script src="assets/js/petite-checklist.js" type="module"></script>
 </body>
 
 </html>

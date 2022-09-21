@@ -30,123 +30,113 @@
 
             <!-- Ajouter du contenu ici -->
             <div class="col-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8">
-                <!-- Templates  -->
+                <!-- Templates -->
                 <template id="petite_checklist" class="petite-checklist-template">
-                    <div class="card card-standard card-reveal">
-                        <div class="card-body">
-                            <fieldset class="petite-field">
-                                <legend class="petite-legend"
-                                    :class="isRequired === true && 'required'">
-                                    <strong>Question {{uniqueId}}</strong> -
-                                    {{question}}
-                                    <span v-if="isRequired === true" class="wb-inv">
-                                        <span v-if="lang==='fr'">Cette
-                                            question est nécessaire.</span>
-                                        <span v-else-if="lang==='en'">This question is
-                                            required.</span>
-                                    </span>
-                                </legend>
-                            </fieldset>
-                            <p class="petite-content">
-                                <input type="radio" :name=`input_${uniqueId}`
-                                    :id=`input_${uniqueId}${randNum+1}` class="option">
-                                <label :for=`input_${uniqueId}${randNum+1}`>1 - <span
-                                        v-if="lang==='fr'">Pas du
-                                        tout d’accord</span><span
-                                        v-else-if="lang==='en'">Strongly
-                                        disagree</span></label>
-                            </p>
-                            <p class="petite-content">
-                                <input type="radio" :name=`input_${uniqueId}`
-                                    :id=`input_${uniqueId}${randNum+2}` class="option">
-                                <label :for=`input_${uniqueId}${randNum+2}`>2 - <span
-                                        v-if="lang==='fr'">Pas
-                                        d’accord</span><span
-                                        v-else-if="lang==='en'">Disagree</span></label>
-                            </p>
-                            <p class="petite-content">
-                                <input type="radio" :name=`input_${uniqueId}`
-                                    :id=`input_${uniqueId}${randNum+3}` class="option">
-                                <label :for=`input_${uniqueId}${randNum+3}`>3 - <span
-                                        v-if="lang==='fr'">Pas
-                                        d’opinion</span><span
-                                        v-else-if="lang==='en'">Neither agree or
-                                        disagree</span></label>
-                            </p>
-                            <p class="petite-content">
-                                <input type="radio" :name=`input_${uniqueId}`
-                                    :id=`question_${uniqueId}${randNum+4}` class="option">
-                                <label :for=`question_${uniqueId}${randNum+4}`>4 -
-                                    <span v-if="lang==='fr'"> D’accord</span><span
-                                        v-else-if="lang==='en'">Agree</span></label>
-                            </p>
-                            <p class="petite-content">
-                                <input type="radio" :name=`input_${uniqueId}`
-                                    :id=`input_${uniqueId}${randNum+5}` class="option">
-                                <label :for=`input_${uniqueId}${randNum+5}`>5 - <span
-                                        v-if="lang==='fr'">Tout à
-                                        fait d’accord</span><span
-                                        v-else-if="lang==='en'">Strongly
-                                        agree</span></label>
-                            </p>
-                            <p class="petite-content">
-                                <input type="radio" :name=`input_${uniqueId}`
-                                    :id=`input_${uniqueId}${randNum+6}` class="option">
-                                <label :for=`input_${uniqueId}${randNum+6}`><span
-                                        v-if="lang === 'fr'">Je ne sais
-                                        pas</span><span
-                                        v-else-if="lang === 'en'">Unsure</span></label>
-                            </p>
-                        </div>
-                    </div>
+                    <fieldset class="petite-field">
+                        <legend class="petite-legend"
+                            :class="isRequired === true && 'required'">
+                            <strong>Question {{uniqueId}}</strong> - {{question}}
+                            <span v-if="isRequired === true" class="wb-inv">
+                                <span v-if="lang==='fr'">Cette
+                                    question est nécessaire.</span>
+                                <span v-else-if="lang==='en'">This question is
+                                    required.</span>
+                            </span>
+                        </legend>
+                    </fieldset>
+                    <p class="petite-content">
+                        <input type="radio" :name=`question_${uniqueId}`
+                            :id=`question_${uniqueId}${randNum+1}` class="option">
+                        <label :for=`question_${uniqueId}${randNum+1}`>1 - <span
+                                v-if="lang==='fr'">Pas du
+                                tout d’accord</span><span v-else-if="lang==='en'">Strongly
+                                disagree</span></label>
+                    </p>
+                    <p class="petite-content">
+                        <input type="radio" :name=`question_${uniqueId}`
+                            :id=`question_${uniqueId}${randNum+2}` class="option">
+                        <label :for=`question_${uniqueId}${randNum+2}`>2 - <span
+                                v-if="lang==='fr'">Pas
+                                d’accord</span><span
+                                v-else-if="lang==='en'">Disagree</span></label>
+                    </p>
+                    <p class="petite-content">
+                        <input type="radio" :name=`question_${uniqueId}`
+                            :id=`question_${uniqueId}${randNum+3}` class="option">
+                        <label :for=`question_${uniqueId}${randNum+3}`>3 - <span
+                                v-if="lang==='fr'">Pas
+                                d’opinion</span><span v-else-if="lang==='en'">Neither
+                                agree or
+                                disagree</span></label>
+                    </p>
+                    <p class="petite-content">
+                        <input type="radio" :name=`question_${uniqueId}`
+                            :id=`question_${uniqueId}${randNum+4}` class="option">
+                        <label :for=`question_${uniqueId}${randNum+4}`>4 -
+                            <span v-if="lang==='fr'"> D’accord</span><span
+                                v-else-if="lang==='en'">Agree</span></label>
+                    </p>
+                    <p class="petite-content">
+                        <input type="radio" :name=`question_${uniqueId}`
+                            :id=`question_${uniqueId}${randNum+5}` class="option">
+                        <label :for=`question_${uniqueId}${randNum+5}`>5 - <span
+                                v-if="lang==='fr'">Tout à
+                                fait d’accord</span><span v-else-if="lang==='en'">Strongly
+                                agree</span></label>
+                    </p>
+                    <p class="petite-content">
+                        <input type="radio" :name=`question_${uniqueId}`
+                            :id=`question_${uniqueId}${randNum+6}` class="option">
+                        <label :for=`question_${uniqueId}${randNum+6}`><span
+                                v-if="lang === 'fr'">Je ne sais
+                                pas</span><span
+                                v-else-if="lang === 'en'">Unsure</span></label>
+                    </p>
+                    <hr>
                 </template>
 
                 <template id="petite_ta" class="petite-textArea-template">
-                    <div class="card card-standard card-reveal">
-                        <div class="card-body">
-                            <form method="post" class="thoughts-form">
-                                <label :for="uniqueId !== ''&& `textAreaId_${uniqueId}` "
-                                    class="thought-label"
-                                    :class="isRequired === true && 'required'">
-                                    <strong>Question {{uniqueId}}</strong> -
-                                    {{question}}
-                                    <span v-if="isRequired === true" class="wb-inv">
-                                        <span v-if="lang==='fr'">Cette
-                                            question est nécessaire pour
-                                            soumettre le formulaire.</span>
-                                        <span v-else-if="lang==='en'">This question is
-                                            required to submit the form.</span>
-                                    </span></label>
-                                <textarea name="thoughts"
-                                    :id="`textAreaId_${uniqueId}` !== ''&& `textAreaId_${uniqueId}` "
-                                    class="thought-text"
-                                    v-model="personalThought"></textarea>
-                                <button :id="uniqueId !== ''&& `btnId_${uniqueId}`"
-                                    class="btn btn-primary thought-submit"
-                                    @click.prevent="submitForm"><span
-                                        v-if="lang==='fr'">Soumettre</span><span
-                                        v-else-if="lang==='en'">Submit</span></button>
 
-                                <div class="saved-resp" aria-live="polite">
-                                    <p v-if="isValid === true && isRequired === true"
-                                        class="feedback feedback-positive"
-                                        :aria-labelledby="uniqueId !== ''&& `textAreaId_${uniqueId}` ">
-                                        Votre réponse est :
-                                        {{personalThought}}</p>
-                                    <p v-else-if="isValid === false"
-                                        class="feedback feedback-negative"
-                                        :aria-labelledby="uniqueId !== ''&& `textAreaId_${uniqueId}` ">
-                                        <span v-if="lang==='fr'">
-                                            Veuillez compléter la zone de texte
-                                            requise.</span><span
-                                            v-else-if="lang==='en'">Please fill in the
-                                            required text box.</span>
-                                    </p>
-                                </div>
-                            </form>
+                    <form method="post" class="thoughts-form">
+                        <label :for="uniqueId !== ''&& `textAreaId_${uniqueId}` "
+                            class="thought-label"
+                            :class="isRequired === true && 'required'">
+                            <strong>Question {{uniqueId}}</strong> - {{question}}
+                            <span v-if="isRequired === true" class="wb-inv">
+                                <span v-if="lang==='fr'">Cette
+                                    question est nécessaire pour
+                                    soumettre le formulaire.</span>
+                                <span v-else-if="lang==='en'">This question is
+                                    required to submit the form.</span>
+                            </span></label>
+                        <textarea name="thoughts"
+                            :id="`textAreaId_${uniqueId}` !== ''&& `textAreaId_${uniqueId}` "
+                            class="thought-text" v-model="personalThought"></textarea>
+                        <button :id="uniqueId !== ''&& `btnId_${uniqueId}`"
+                            class="btn btn-primary thought-submit"
+                            @click.prevent="submitForm"><span
+                                v-if="lang==='fr'">Soumettre</span><span
+                                v-else-if="lang==='en'">Submit</span></button>
+
+                        <div class="saved-resp" aria-live="polite">
+                            <p v-if="isValid === true && isRequired === true"
+                                class="feedback feedback-positive"
+                                :aria-labelledby="uniqueId !== ''&& `textAreaId_${uniqueId}` ">
+                                <span v-if="lang==='fr'">
+                                    Votre réponse est :</span><span
+                                    v-else-if="lang==='en'">Your response is:</span>
+                                {{personalThought}}</p>
+                            <p v-else-if="isValid === false"
+                                class="feedback feedback-negative"
+                                :aria-labelledby="uniqueId !== ''&& `textAreaId_${uniqueId}` ">
+                                <span v-if="lang==='fr'">
+                                    Veuillez compléter la zone de texte
+                                    requise.</span><span v-else-if="lang==='en'">Please
+                                    fill in the
+                                    required text box.</span>
+                            </p>
                         </div>
-                    </div>
-
+                    </form>
                 </template>
                 <!-- Ajouter du contenu ici -->
                 <main class="m1-8">
@@ -161,29 +151,37 @@
                         <p>Toutes les réponses sont anonymes.</p>
                     </div>
 
-                    <p class="icon icon-click">Évaluez les énoncés ci-dessous à l’aide
-                        de l’échelle fournie, dans laquelle 1 signifie « Pas du tout »
-                        et 5, « Tout à fait » .</p>
-                    <div class="checkbox-component"
-                        v-scope="addCheckBox({question: `Je peux expliquer certaines notions liées à la santé mentale après avoir parcouru tout le contenu de ce module.`, uniqueId: 1, isRequired: true})">
+                    <div class="card card-standard card-reveal">
+                        <div class="card-body">
+                            <p class="icon icon-click">Évaluez les énoncés ci-dessous à
+                                l’aide
+                                de l’échelle fournie, dans laquelle 1 signifie « Pas du
+                                tout »
+                                et 5, « Tout à fait » .</p>
+                            <div class="checkbox-component"
+                                v-scope="addCheckBox({question: `Je peux expliquer certaines notions liées à la santé mentale après avoir parcouru tout le contenu de ce module.`, uniqueId: 1, isRequired: true})">
+                            </div>
+                            <div class="checkbox-component"
+                                v-scope="addCheckBox({question: `Je comprends que la santé mentale d’une personne peut être influencée par d’autres dimensions de son identité (identité sexuelle, orientation sexuelle, capacités, race, statut socioéconomique, etc.).`, uniqueId: 2, isRequired: true})">
+                            </div>
+                            <div class="checkbox-component"
+                                v-scope="addCheckBox({question: `Je comprends comment la maladie mentale peut avoir une incidence sur l’inclusion ou l’exclusion qui vit une personne au travail.` ,uniqueId: 3, isRequired: true})">
+                            </div>
+                            <div class="checkbox-component"
+                                v-scope="addCheckBox({question: `Je reconnais les signes indiquant que moi-même ou d’autres personnes puissions avoir besoin de soutien en santé mentale.` ,uniqueId: 4, isRequired: true})">
+                            </div>
+                            <p class="icon icon-click">
+                                Réfléchissez à la question ci-dessous et répondez-y dans
+                                l’espace
+                                prévu à cet effet, si vous le souhaitez.
+                            </p>
+                            <div class="ta-component"
+                                v-scope="textInputVal({question: `Nommez un geste que vous comptez poser pour soutenir la sensibilisation à la santé mentale et réduire la stigmatisation de la santé mentale au travail.`, isRequired: true, uniqueId: 5,} )">
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="checkbox-component"
-                        v-scope="addCheckBox({question: `Je comprends que la santé mentale d’une personne peut être influencée par d’autres dimensions de son identité (identité sexuelle, orientation sexuelle, capacités, race, statut socioéconomique, etc.).`, uniqueId: 2, isRequired: true})">
-                    </div>
-                    <div class="checkbox-component"
-                        v-scope="addCheckBox({question: `Je comprends comment la maladie mentale peut avoir une incidence sur l’inclusion ou l’exclusion qui vit une personne au travail.` ,uniqueId: 3, isRequired: true})">
-                    </div>
-                    <div class="checkbox-component"
-                        v-scope="addCheckBox({question: `Je reconnais les signes indiquant que moi-même ou d’autres personnes puissions avoir besoin de soutien en santé mentale.` ,uniqueId: 4, isRequired: true})">
-                    </div>
-                    <p class="icon icon-click">
-                        Réfléchissez à la question ci-dessous et répondez-y dans
-                        l’espace
-                        prévu à cet effet, si vous le souhaitez.
-                    </p>
-                    <div class="ta-component"
-                        v-scope="textInputVal({question: `Nommez un geste que vous comptez poser pour soutenir la sensibilisation à la santé mentale et réduire la stigmatisation de la santé mentale au travail.`, isRequired: true, uniqueId: 5,} )">
-                    </div>
+
                     <!-- <div class="print-container">
                                             <button class="print-answers" title="Print Answers"
                                                 data-toggle="tooltip">
