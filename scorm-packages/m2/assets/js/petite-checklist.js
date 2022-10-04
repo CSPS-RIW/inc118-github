@@ -25,11 +25,13 @@ const textInputVal = (prop) => {
             if (this.personalThought === null || this.personalThought === '') {
                 if (this.isRequired !== true) {
                     this.isValid = true
+                    doLMSFinish();
                 } else {
                     this.isValid = false
                 }
             } else {
                 this.isValid = true
+                doLMSFinish();
             }
         }
     }
