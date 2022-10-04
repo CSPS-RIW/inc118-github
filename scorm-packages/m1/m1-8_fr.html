@@ -207,13 +207,11 @@
     <script src="assets/js/csps-app.js"></script>
     <!-- endinject -->
     <script src="assets/js/petite-checklist.js" type="module"></script>
-    <!-- <script>
-        let printBtn = document.querySelector('.print-answers');
-        let printCont = document.querySelector('.print-container');
-        printBtn.addEventListener('click', () => {
-            window.print();
-        })
-    </script> -->
+    <script>
+        doLMSInitialize();
+        console.log(`Hello ${doLMSGetValue("cmi.core.student_name")}`);
+        doLMSCommit();
+    </script>
 </body>
 
 </html>
