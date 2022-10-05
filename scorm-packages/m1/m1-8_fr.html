@@ -208,15 +208,7 @@
     <!-- endinject -->
     <script src="assets/js/petite-checklist.js" type="module"></script>
     <script>
-        let lang = document.querySelector('html').getAttribute('lang');
         doLMSInitialize();
-        lang !== 'en' ?
-            console.log(
-                `Activité terminée. Félicitations ${doLMSGetValue("cmi.core.student_name")}`
-            ) :
-            console.log(
-                `Activity completed. Congratulations ${doLMSGetValue("cmi.core.student_name")}`
-            );
         doLMSCommit();
     </script>
 </body>
