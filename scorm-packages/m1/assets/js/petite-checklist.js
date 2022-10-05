@@ -53,4 +53,10 @@ createApp({
     textInputVal
 }).mount()
 
-console.log('petite vue/checklist is ready')
+lang !== 'en' ?
+    console.log(
+        `${doLMSGetValue("cmi.core.student_name")} est connecté.`
+    ) :
+    console.log(
+        `${doLMSGetValue("cmi.core.student_name")} is logged in.`
+    );
