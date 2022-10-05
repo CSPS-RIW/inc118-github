@@ -25,13 +25,24 @@ const textInputVal = (prop) => {
             if (this.personalThought === null || this.personalThought === '') {
                 if (this.isRequired !== true) {
                     this.isValid = true
-                    doLMSFinish();
+                    setTimeout(() => {
+                        lang !== 'en' ?
+                            console.log(`Activité terminée. Félicitations ${doLMSGetValue("cmi.core.student_name")}`) :
+                            console.log(`Activity completed. Congratulations ${doLMSGetValue("cmi.core.student_name")}`)
+                        doLMSFinish()
+                    }, 2000)
                 } else {
                     this.isValid = false
                 }
             } else {
                 this.isValid = true
-                doLMSFinish();
+                setTimeout(() => {
+                    lang !== 'en' ?
+                        console.log(`Activité terminée. Félicitations ${doLMSGetValue("cmi.core.student_name")}`) :
+                        console.log(`Activity completed. Congratulations ${doLMSGetValue("cmi.core.student_name")}`)
+
+                    doLMSFinish()
+                }, 2000)
             }
         }
     }
