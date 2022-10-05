@@ -53,6 +53,9 @@ createApp({
     textInputVal
 }).mount()
 
+doLMSInitialize();
+doLMSCommit();
+
 lang !== 'en' ?
     console.log(
         `${doLMSGetValue("cmi.core.student_name")} est connecté.`
