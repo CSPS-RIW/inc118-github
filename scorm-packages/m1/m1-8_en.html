@@ -209,10 +209,16 @@
     <!-- endinject -->
     <script src="assets/js/petite-checklist.js" type="module"></script>
     <script>
+        let lang = document.querySelector('html').getAttribute('lang');
         doLMSInitialize();
-        console.log(`Hello ${doLMSGetValue("cmi.core.student_name")}`);
+        lang !== 'en' ?
+            console.log(
+                `${doLMSGetValue("cmi.core.student_name")} est connecté.`
+            ) :
+            console.log(
+                `${doLMSGetValue("cmi.core.student_name")} is logged in.`
+            );
         doLMSCommit();
-
     </script>
 </body>
 
